@@ -37,6 +37,16 @@ pipeline {
 				])
 			}
 		}
+		stage("Package"){
+			steps{
+				sh "./gradlew build"
+			}
+		} 
+		stage("Docker Build"){
+			steps{
+				sh "docker build -t jcoj2006/calculator."
+			}
+		}
 			
 	}
 }
