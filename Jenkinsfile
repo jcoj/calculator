@@ -44,7 +44,7 @@ pipeline {
 		} 
 		stage("Docker Build"){
 			steps{
-				sh "docker build  -t jcoj2006/calculator."
+				sh "docker build  -t jcoj2006/calculator ."
 			}
 		}
 			
