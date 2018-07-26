@@ -63,6 +63,19 @@ pipeline {
 				sh "docker run -d --rm -p 8765:8080 --name calculator jcoj2006/calculator"
 			}
 		}
-	
+		stage("Acceptance test"){
+			steps{
+				sleep 60
+				sh "./acceptance.sh"
+			}
+		
+		}
+		post{
+			always {
+				sh "docker stop calculator"
+			}
+		}
+			
 	}
+	
 }
