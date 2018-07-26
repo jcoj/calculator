@@ -53,7 +53,7 @@ pipeline {
 			steps{
 				withCredentials([usernamePassword( credentialsId: 'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           				sh "docker login -u ${USERNAME} -p ${PASSWORD}"
-          				sh 'docker push jcoj2006/calculator'
+          				sh "docker push jcoj2006/calculator"
 				}
 			}
 
