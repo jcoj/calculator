@@ -52,5 +52,5 @@ pipeline {
 				sh "docker push jcoj2006/calculator"
 			}
 			
-	}
+		}
 }
