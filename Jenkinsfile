@@ -1,4 +1,5 @@
 pipeline {
+	def app
 	agent any
 	triggers {
 		pollSCM('* * * * *')
@@ -44,7 +45,8 @@ pipeline {
 		} 
 		stage("Docker Build"){
 			steps{
-				sh "docker build  -t jcoj2006/calculator ."
+				app = docker.build("jcoj2006/calculator")
+				//sh "docker build  -t jcoj2006/calculator ."
 			}
 		}
 		stage("Docker push image"){
