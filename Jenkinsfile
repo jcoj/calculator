@@ -45,8 +45,8 @@ pipeline {
 		} 
 		stage("Docker Build"){
 			steps{
-				app = docker.build("jcoj2006/calculator")
-				//sh "docker build  -t jcoj2006/calculator ."
+				
+				sh "docker build  -t jcoj2006/calculator ."
 			}
 		}
 		stage("Docker push image"){
