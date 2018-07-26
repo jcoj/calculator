@@ -51,8 +51,8 @@ pipeline {
 		}
 		stage("Docker push image"){
 			steps{
-			  withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'docker-hub-credentials-Password', usernameVariable: 'docker-hub-credentialsUser')]) {
-          				sh "docker login -u ${env.docker-hub-credentialsUser} -p ${env.docker-hub-credentialsPassword}"
+				withCredentials([usernamePassword( credentialsId: 'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          				sh "docker login -u ${USERNAME} -p ${PASSWORD}"
           				sh 'docker push jcoj2006/calculator:latest'
 				}
 			}
