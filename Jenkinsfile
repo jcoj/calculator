@@ -1,5 +1,5 @@
 pipeline {
-	def app
+
 	agent any
 	triggers {
 		pollSCM('* * * * *')
@@ -51,9 +51,9 @@ pipeline {
 		}
 		stage("Docker push image"){
 			steps{
-				docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){
-					app.push("${env.BUILD_NUMBER}")
-					app.push("latest")
+			  withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'docker-hub-credentials-Password', usernameVariable: 'docker-hub-credentialsUser')]) {
+          				sh "docker login -u ${env.docker-hub-credentialsUser} -p ${env.docker-hub-credentialsPassword}"
+          				sh 'docker push jcoj2006/calculator:latest'
 				}
 			}
 
