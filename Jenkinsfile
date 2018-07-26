@@ -47,6 +47,12 @@ pipeline {
 				sh "docker build  -t jcoj2006/calculator ."
 			}
 		}
+		stage("Docker push image"){
+			steps{
+				sh "docker push jcoj2006/calculator"
+			}
+
+		}
 	
 	}
 }
