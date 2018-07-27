@@ -49,7 +49,7 @@ pipeline {
 				sh "docker build  -t jcoj2006/calculator  ."
 			}
 		}
-		/*stage("Docker push image"){
+		stage("Docker push image"){
 			steps{
 				withCredentials([usernamePassword( credentialsId: 'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           				sh "docker login -u ${USERNAME} -p ${PASSWORD}"
@@ -57,7 +57,7 @@ pipeline {
 				}
 			}
 
-		}*/
+		}
 		stage("Deploy to staging"){
 			steps{
 				sh "docker run -d --rm -p 8765:8080 --name calculator jcoj2006/calculator"
