@@ -46,14 +46,15 @@ pipeline {
 		stage("Docker Build"){
 			steps{
 				
-				sh "docker build  -t jcoj2006/calculator  ."
+				sh "docker build  -t calculator  ."
+				sh "docker tag calculator jcoj2006/calculator:latest"
 			}
 		}
 		stage("Docker push image"){
 			steps{
 				withCredentials([usernamePassword( credentialsId: 'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           				sh "docker login -u ${USERNAME} -p ${PASSWORD}"
-          				sh "docker push jcoj2006/calculator"
+          				sh "docker push jcoj2006/calculator:latest"
 				}
 			}
 
