@@ -61,7 +61,7 @@ pipeline {
 		}
 		stage("Deploy to staging"){
 			steps{
-				sh "docker run -d --rm -p 8765:8080 --name calculator jcoj2006/calculator"
+				sh "docker run -d  -p 8765:8080 --name calculator jcoj2006/calculator"
 			}
 		}
 		stage("Acceptance test"){
