@@ -1,2 +1,2 @@
 #!/bin/bash -
-test $(curl "http://127.0.0.1:8765/sum=?a=1\&b=2") -eq 3
+test $(curl "http://172.16.60.68:8765/sum=?a=1\&b=2") -eq 3
