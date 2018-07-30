@@ -8,12 +8,9 @@ buildscript {
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
-	dependencies {
- 	   	compile 'org.springframework.boot:spring-boot-starter-web'
-	}
-	
+		
 }
-}
+
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
